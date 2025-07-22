@@ -1,0 +1,94 @@
+AstroLogger Project Plan: The Comprehensive Edition
+------------------------------------------------------------------------
+PROJECT GOAL
+    To build a sophisticated command-line application 
+    for logging a wide variety of astronomical objects, 
+    reinforcing advanced object-oriented programming (OOPS) concepts, 
+    robust data handling, and 
+    professional command-line interface (CLI) design.
+------------------------------------------------------------------------
+CORE FEATURES
+    Add ten different types of celestial objects to a log.
+    List all observations in a clean, tabular format.
+    Filter the list by any object type.
+    Search for any object by its unique name.
+    Persist all data between sessions using a local JSON file.
+------------------------------------------------------------------------
+TECHNICAL STACK
+Language: Python 3
+------------------------------------------------------------------------
+Core Libraries: argparse, json
+Recommended Library: rich (for formatted table output)
+------------------------------------------------------------------------
+File Structure:
+/Project-Odyssey/
+|
++-- .gitignore
++-- astrologger.py
++-- observations.json
++-- README.md
+------------------------------------------------------------------------
+
+
+DEVELOPMENT MILESTONES
+-------------------------------------------------------------------------------
+PHASE 1: ADVANCED OOPS HIERARCHY
+Objective: To design and implement a complex and realistic class hierarchy.
+-------------------------------------------------------------------------------
+Tasks:
+
+Define Parent Class:
+    CelestialObject: This base class will hold common attributes like name, right ascension, and declination.
+
+Define Child Classes: 
+    Implement each of the following as a child class of CelestialObject. Each must have its own unique attributes.
+
+        Star: stellar_type, magnitude
+        Planet: host_star, orbital_period_days
+        Moon: host_planet
+        Asteroid: composition, diameter_km
+        Comet: last_seen_date
+        Galaxy: galaxy_type, distance_ly
+        Nebula: nebula_type
+        DwarfPlanet: host_star
+        BlackHole: mass_solar_masses
+        Quasar: redshift
+
+    Data Serialization: Each class needs a method to convert its data into a dictionary. This dictionary must include a special 'obj_type' key to identify the class name (e.g., 'Star').
+
+-------------------------------------------------------------------------------
+PHASE 2: EXPANDED COMMAND-LINE INTERFACE
+Objective: To build a CLI that can handle adding all ten object types.
+-------------------------------------------------------------------------------
+Tasks:
+
+Implement argparse Subparsers: 
+    The main command will have subparsers for 'add', 'list', and 'search'. The 'add' command will itself have ten more subparsers, one for each celestial object type.
+
+Define Arguments: 
+    Each object's 'add' subparser needs arguments for its unique attributes. For example, the command to add a star would be 'python astrologger.py add star' followed by arguments for its name, coordinates, type, and magnitude.
+
+-----------------------------------------------------------------------------------------------------
+PHASE 3: INTELLIGENT DATA LOADING
+Objective: To correctly load the diverse collection of objects from the JSON file back into memory.
+-----------------------------------------------------------------------------------------------------
+Tasks:
+
+Create a load_log method in your LogManager class.
+
+Build an Object Factory: This is a critical helper function. It will take a dictionary (read from the JSON file) and check the value of the 'obj_type' key. Based on that value, it will create and return the correct object instance (Star, Planet, etc.) using the rest of the dictionary's data.
+
+Integrate the Factory: Your load_log method will use this factory to reconstruct the list of objects when the program starts.
+
+
+-------------------------------------------------------------------------------
+PHASE 4: POLISH AND USABILITY
+Objective: To refine the user experience and add finishing touches.
+-------------------------------------------------------------------------------
+Tasks:
+
+Implement Search: Build the 'search' command to find an object by name.
+
+Implement List Filtering: Fully implement the '--type' filter for the 'list' command.
+
+Improve Output: Use a library like 'rich' to display the output of the 'list' and 'search' commands in a clean, formatted table.
