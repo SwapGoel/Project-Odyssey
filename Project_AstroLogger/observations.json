@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Kepler-186f",
+    "ra": "19h 54m 36s",
+    "dec": "+43\u00b0 57' 18\"",
+    "observed_date": "2025-07-22T23:32:48.663919",
+    "host_star": "Kepler-186",
+    "orbital_period_days": 130,
+    "obj_type": "Planet"
+  },
+  {
+    "name": "3C 273",
+    "ra": "12h 29m 06s",
+    "dec": "+02\u00b0 03' 08\"",
+    "observed_date": "2025-07-22T23:32:48.663946",
+    "redshift": 0.158,
+    "obj_type": "Quasar"
+  },
+  {
+    "name": "Crab Nebula",
+    "ra": "05h 34m 31s",
+    "dec": "+22\u00b0 00' 52\"",
+    "observed_date": "2025-07-22T23:32:48.663950",
+    "nebula_type": "Supernova Remnant",
+    "obj_type": "Nebula"
+  }
+]
